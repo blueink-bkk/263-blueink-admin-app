@@ -1,0 +1,31 @@
+{
+  "name": "263-blueink-uploads",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "264-aws-s3": "^1.0.5",
+    "@babel/runtime": "^7.11.2",
+    "aws-sdk": "^2.876.0",
+    "cheerio": "^1.0.0-rc.5",
+    "jquery": "^3.5.1",
+    "js-yaml": "^4.0.0",
+    "load-json-file": "^6.2.0",
+    "marked": "^2.0.1",
+    "meteor-node-stubs": "^1.0.1",
+    "node-fetch": "^2.6.1",
+    "write-json-file": "^4.3.0",
+    "xlsx": "^0.16.9"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}

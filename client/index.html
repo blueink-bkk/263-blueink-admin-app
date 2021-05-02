@@ -1,0 +1,35 @@
+<template name="index">
+<div class="">
+  <h3>Blueink website Administration and Uploads</h3>
+  <h4>Main Menu</h4>
+  <div class="">
+    [ <a href="new-product">Upload a New-Product</a>]
+    <br>
+    <span style="font-family:times new roman">
+    Upload a folder containing pdf, jpeg, and md files, Will be stored at s3://blueink/np14/<i>xid</i>
+    </span>
+  </div>
+
+  <br>
+  <div class="">
+    [ <a href="upload-sitemap">Upload xlsx sitemap</a>]
+  </div>
+
+  <br>
+  <div class="">
+    [ <a href="mk-catalog">rebuild catalogs</a>]
+  </div>
+
+  <br>
+  <div class="">
+    [ <a href="np-directory">NEW-PRODUCTS DIRECTORY</a>]
+    <br>
+    <span style="font-family:'times new roman'">
+    Upload xlsx file : list of products and pages to be published.<br>
+    Stored at <tt>s3://blueink/index-np.yaml</tt>
+    </span>
+  </div>
+
+
+</div>
+</template>

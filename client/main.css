@@ -1,0 +1,184 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.nodisplay {
+  display:none;
+}
+
+.hidden {
+  visibility:hidden;
+}
+
+body {
+  margin:10px;
+  padding: 0px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+hbox, .hbox, .hbox-ql {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: none;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.hbox-qr {
+  box-sizing: border-box;
+	display: flex;
+	flex-wrap: none;
+	--margin-right: auto;
+	--margin-left: auto;
+  justify-content: flex-end;
+	--margin-bottom:10px;
+}
+
+
+.hbox-qc {
+  box-sizing: border-box;
+		display: flex;
+		flex-wrap: nowrap;
+    justify-content: center;
+		_margin-right: auto;
+		_margin-left: auto;
+		_margin-bottom:10px;
+}
+
+.qj {
+  justify-content: space-between;
+  width:100%;
+
+}
+
+.hbox-qj {
+  box-sizing: border-box;
+	display: flex;
+	flex-wrap: none;
+	flex-direction: row;
+	align-items: baseline;
+	justify-content: space-between;
+  width:100%;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.space-between {justify-content: space-between;}
+
+
+vbox, .vbox, .vbox-top {
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+  align-items: flex-start;
+}
+
+
+
+.hss, .vss {
+		flex-grow:1;
+}
+
+
+
+h1, .h1 {
+  text-align: center;
+  font-size:18pt;
+}
+
+.a-panel {
+   _height:100%;
+   width:1000px; border:3px solid yellow; margin:0;
+   _height:100%; height:100vh;
+   position:absolute;
+
+}
+
+.modal-panel {
+  width:1000px; border:3px solid yellow; margin:0;
+  _height:100%; height:100vh;
+  position:absolute;
+}
+
+.modal2 {
+  width:1000px; border:3px solid yellow; margin:0;
+  _height:100%; height:100vh;
+  position:absolute;
+  background-color: rgba(33,33,33,0.5);
+  z-index:20;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  height:24px; margin:5px;
+  line-height:10px;
+}
+
+.dkz-button {
+  _cursor:pointer;
+  border:2px solid rgb(224, 224, 224); border-radius:5px;
+  _height:38px;
+  background-color: rgb(177, 177, 177);
+  box-sizing: border-box;
+  color: rgb(138,138,138);
+  font-family: Ubuntu;
+  font-size: 14.6667px;
+  _line-height:50px;
+  padding: 2px 22px;
+  margin: 0;
+  display: inline-block;
+}
+
+.dkz-button.active{
+  cursor:pointer;
+  border:2px solid lime; border-radius:5px;
+  _height:38px;
+  background-color: rgb(177, 177, 177);
+  box-sizing: border-box;
+  color: white;
+  font-family: Ubuntu;
+  font-size: 14.6667px;
+  _line-height:50px;
+}
+
+.dkz-button.active:hover {
+  border:2px solid lime; border-radius:5px;
+  color: black;
+}
+
+.dkz-button.running{
+  cursor:pointer;
+  border:2px solid orange; border-radius:5px;
+  _height:38px;
+  background-color: rgb(177, 177, 177);
+  box-sizing: border-box;
+  color: white;
+  font-family: Ubuntu;
+  font-size: 14.6667px;
+  _line-height:50px;
+  text-decoration: blink;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+}
+
+
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+
+.blink{
+	text-decoration: blink;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+}

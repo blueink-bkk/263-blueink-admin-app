@@ -1,0 +1,87 @@
+<head>
+  <style media="screen">
+    .catNo-btn {
+      background-color: pink;
+      width:50px;
+      height: 15px;
+      padding: 2px 6px 4px 6px;
+      margin: 2px;
+      cursor:pointer;
+    }
+    .catNo-refresh {
+      background-color: pink;
+      -width:50px;
+      height: 15px;
+      padding: 2px 6px 4px 6px;
+      margin: 2px;
+      cursor:pointer;
+    }
+
+    .catNo-btn.running {
+      background-color: yellow;
+    }
+
+    .catNo-btn.frozen {
+      pointer: wait;
+    }
+
+  </style>
+</head>
+
+<template name="mk-catalog">
+<div class="">
+  [ <a href="/">back to index</a> ]
+
+  <h2>New-products pages</h2>
+
+  <pre>
+    ultimheat.co.th/en/new-products.html       ultimheat.co.th/en/new-products.html
+    ultimheat.co.th/en/new-products-01.html    ultimheat.co.th/en/new-products-01.html
+    ultimheat.co.th/en/new-products-02.html    ultimheat.co.th/en/new-products-02.html
+    ...                                        ...
+  </pre>
+
+  <h4>status</h4>
+  <div class="hbox" style="font-size:10pt;line-height:16pt; min-height:30pt; margin-left:30px; color:{{session 'np-status-color'}}">
+    {{session 'np-status'}}
+  </div>
+
+  <button class="js-rebuild-all" type="button" name="button">REBUILD ALL</button>
+
+  <div class="vbox" style="font-size:11pt;">
+  {{#each it in catlist2}}
+    <div class="hbox">  <!-- ENGLISH -->
+      <div class="js-cat-btn catNo-btn selected" catNo="{{it.catNo}}/en">
+      {{it.catNo}}/en &mdash;&ensp;
+      </div>
+
+      <div class="" style="font-family:monospace;">
+      {{it.mtime}}
+      </div>
+
+      <div class="js-resync-btn catNo-refresh" catNo="{{it.catNo}}/en">
+       [resync] {{it.catNo}}/en
+      </div>
+
+    </div>
+
+    <div class="hbox"> <!-- THAI -->
+      <div class="js-cat-btn catNo-btn selected" catNo="{{it.catNo}}/th">
+      {{it.catNo}}/th &mdash;&ensp;
+      </div>
+
+      <div class="" style="font-family:monospace;">
+      {{it.mtime}}
+      </div>
+
+      <div class="js-resync-btn catNo-refresh" catNo="{{it.catNo}}/th">
+       [resync] {{it.catNo}}/th
+      </div>
+
+    </div>
+
+  {{/each}}
+  </div>
+
+</div>
+</template>

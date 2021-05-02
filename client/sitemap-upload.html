@@ -1,0 +1,190 @@
+<template name="sitemap-upload">
+<div class="">
+  [ <a href="/">back to index</a> ]
+
+  <h3>Blueink website Monitoring and Uploads</h3>
+  <h4>Upload xlsx sitemap</h4>
+
+  <pre style="background-color:rgb(220,220,255); margin:20px;padding:20px; width:660px;">
+This page allows you to upload a list of URL to build the page called: <i>sitemap</i>.
+
+
+Before uploading the file: (check list)
+
+
+    <input type="checkbox" id="box1" name="box1"/>(1) the file must be EXCEL (xlsx) file.
+    <input type="checkbox" id="box2"/>(2) column A is the full URL of a web page (html or pdf)
+    <input type="checkbox" id="box3"/>(3) column B is the status: "ok". Ignored
+    <input type="checkbox" id="box4"/>(4) column C is the English label/title that will be printed on the sitemap page.
+    <input type="checkbox" id="box5"/>(4) column D is the Thai label/title that will be printed on the sitemap page.
+    <input type="checkbox" id="box6"/>(6) the first row must be data, *NOT* columns name.
+
+
+  </pre>
+
+
+
+  <div class="vbox" style="background-color: rgb(180,180,180); width:800px;
+  align-items:stretch;">
+
+  <div class="hbox"
+    style="justify-content:space-evenly;
+    padding:10px 3px;">
+
+    <div class="">
+      <label for="xlsx-lookup" name="lookup" class="menu1 dkz-button active">
+        FILE LOOKUP
+      </label>
+      <input id="xlsx-lookup" type="file" style="display:none"/>
+    </div>
+
+    <div name="validate" class="menu1 js-validate dkz-button">
+      VALIDATE
+    </div>
+
+    <div name="skip-validation" class="menu1 js-skip-validation dkz-button">
+      SKIP VALIDATION
+    </div>
+
+    <!--
+    <div name="upload" class="menu1 js-upload dkz-button">
+        <i class="fa fa-cloud-upload"></i> UPLOAD
+    </div>
+    -->
+
+    <div name="publish" class="menu1 js-publish dkz-button">
+        <i class="fa fa-cloud-upload"></i> PUBLISH
+    </div>
+
+    <div name="reset" class="js-reset dkz-button active">
+        RESET
+    </div>
+
+  </div>
+
+  <div class="hbox" style="min-height:20pt;
+  font-family: monospace; font-weight:bold;
+  text-align:center;
+  justify-content:center;
+  color:white;">
+    {{session 'upload-status'}}
+  </div>
+
+
+</div>
+
+
+  <div class="vbox">
+    <div class="hbox">
+      {{session 'validation-status'}}
+    </div>
+
+  </div>
+
+
+
+<!--
+  <div class="vbox" style="border:1px solid gray; padding:0px;
+    position:relative; height:50px;
+    _align-content: space-around;
+    _align-items: center;
+    justify-content: center;
+    ">
+    {{#if filter 'select'}}
+    <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+    {{/if}}
+    <input id="xlsx-sitemap-file" type="file" />
+  </div>
+
+
+  <div class="js-validate vbox" style="margin-top:20px;
+  position:relative; height:50px;
+  _align-content: space-around;
+  _align-items: center;
+  justify-content: center;
+">
+    {{#if filter 'validate'}}
+    <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+    {{/if}}
+    <div class="hbox">
+      <button type="button" name="button">VALIDATE</button>
+      <div id="validate-status" class="" style="display:inline-block;">
+        {{session 'validation-status'}}
+      </div>
+    </div>
+  </div>
+
+-->
+
+<!--
+  <div class="js-upload vbox" style="margin-top:20px;
+  position:relative; height:50px;
+  _align-content: space-around;
+  _align-items: center;
+  justify-content: center;
+  ">
+  {{#if filter 'upload'}}
+  <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+  {{/if}}
+    <div class="hbox">
+      <button type="button" name="button">UPLOAD</button>
+      <div class="" style="display:inline-block;">
+        {{session 'upload-status'}}
+      </div>
+    </div>
+  </div>
+-->
+
+  <div class="">
+    <h4>Sitemap is visible at:</h4>
+
+    <a href="http://ultimheat.co.th/sitemap.txt" target="_blank">
+      ultimheat.co.th/sitemap.txt
+    </a>
+
+    <br>
+    <a href="http://ultimheat.co.th/dkz/sitemap-en.html" target="_blank">
+      ultimheat.co.th/dkz/sitemap-en.html
+    </a>
+
+    <br>
+    <a href="http://ultimheat.co.th/dkz/sitemap-th.html" target="_blank">
+      ultimheat.co.th/dkz/sitemap-th.html
+    </a>
+    <br>
+    <a href="http://ultimheat.co.th/dkz/sitemap.yaml" target="_blank">
+      ultimheat.co.th/dkz/sitemap.yaml
+    </a>
+
+    <br>
+    <a href="http://ultimheat.co.th/robots.txt" target="_blank">
+      ultimheat.co.th/robots.txt
+    </a>
+
+
+  </div>
+
+
+
+  <script type="text/javascript">
+    function validate_data() {
+      console.log('validate-data')
+    }
+  </script>
+
+
+
+  <script type="text/javascript">
+    function p1() {
+      let photo = document.getElementById("image-file").files[0];
+      let formData = new FormData();
+
+      formData.append("photo", photo);
+      fetch('/upload/image', {method: "POST", body: formData});
+    }
+  </script>
+
+
+
+</div>
+</template>

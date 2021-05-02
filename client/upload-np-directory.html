@@ -1,0 +1,172 @@
+<template name="np-directory">
+<div class="">
+  [ <a href="/">back to index</a> ]
+
+  <h4>Blueink website Administration and Uploads</h4>
+  <h3 style="color:blue;">Upload xlsx NEW-PRODUCTS Directory</h3>
+
+  <pre style="background-color:rgb(220,220,255); margin:20px;padding:20px; width:660px;">
+This page allows you to upload a xlsx file to create
+or update the New Products DIRECTORY.
+
+New Products DIRECTORY gives for each product the web pages where the product
+must be published.
+
+Before uploading the file - please do the check list:
+
+
+    <input type="checkbox" id="box1" name="box1"/>(1) the file must be EXCEL (xlsx) file.
+    <input type="checkbox" id="box2"/>(2) column A is a catalog number (ignored)
+    <input type="checkbox" id="box3"/>(3) column B is the section name : MUST START WITH 2 DIGITS
+    <input type="checkbox" id="box4"/>(4) column C is the product type
+    <input type="checkbox" id="box5"/>(4) column D is a sequential number : MUST BE UNIQUE
+    <input type="checkbox" id="box6"/>(6) column E is the status - ex: 'discontinued' or 'replaced by'
+    <input type="checkbox" id="box7"/>(7) column F : if the text contains "remove" the product will be removed.
+
+
+  </pre>
+
+
+
+  <div class="vbox" style="background-color: rgb(180,180,180); width:800px;
+  align-items:stretch;">
+
+  <div class="hbox"
+    style="justify-content:space-evenly;
+    padding:10px 3px;">
+
+    <div class="">
+      <label for="xlsx-lookup" name="lookup" class="menu1 dkz-button active">
+        FILE LOOKUP
+      </label>
+      <input id="xlsx-lookup" type="file" style="display:none"/>
+    </div>
+
+    <div name="validate" class="menu1 js-validate dkz-button">
+      VALIDATE
+    </div>
+
+    <div name="skip-validation" class="menu1 js-skip-validation dkz-button">
+      SKIP VALIDATION
+    </div>
+
+    <!--
+    <div name="upload" class="menu1 js-upload dkz-button">
+        <i class="fa fa-cloud-upload"></i> UPLOAD
+    </div>
+    -->
+
+    <div name="publish" class="menu1 js-publish dkz-button">
+        <i class="fa fa-cloud-upload"></i> PUBLISH
+    </div>
+
+    <div name="reset" class="js-reset dkz-button active">
+        RESET
+    </div>
+
+  </div>
+
+  <div class="hbox" style="min-height:20pt;
+  font-family: monospace; font-weight:bold;
+  text-align:center;
+  justify-content:center;
+  color:white;">
+    {{session 'upload-status'}}
+  </div>
+
+
+</div>
+
+
+  <div class="vbox">
+    <div class="hbox">
+      {{session 'validation-status'}}
+    </div>
+
+  </div>
+
+
+
+<!--
+  <div class="vbox" style="border:1px solid gray; padding:0px;
+    position:relative; height:50px;
+    _align-content: space-around;
+    _align-items: center;
+    justify-content: center;
+    ">
+    {{#if filter 'select'}}
+    <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+    {{/if}}
+    <input id="xlsx-sitemap-file" type="file" />
+  </div>
+
+
+  <div class="js-validate vbox" style="margin-top:20px;
+  position:relative; height:50px;
+  _align-content: space-around;
+  _align-items: center;
+  justify-content: center;
+">
+    {{#if filter 'validate'}}
+    <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+    {{/if}}
+    <div class="hbox">
+      <button type="button" name="button">VALIDATE</button>
+      <div id="validate-status" class="" style="display:inline-block;">
+        {{session 'validation-status'}}
+      </div>
+    </div>
+  </div>
+
+-->
+
+<!--
+  <div class="js-upload vbox" style="margin-top:20px;
+  position:relative; height:50px;
+  _align-content: space-around;
+  _align-items: center;
+  justify-content: center;
+  ">
+  {{#if filter 'upload'}}
+  <div class="" style="position:absolute; width:100%; height:100%;background-color:rgba(174, 169, 169, 0.67);"></div>
+  {{/if}}
+    <div class="hbox">
+      <button type="button" name="button">UPLOAD</button>
+      <div class="" style="display:inline-block;">
+        {{session 'upload-status'}}
+      </div>
+    </div>
+  </div>
+-->
+
+  <div class="">
+    <h4>actual directory is visible at:</h4>
+    <a href="http://ultimheat.co.th/index-np.yaml" target="_blank">
+      index-np.yaml
+    </a>
+  </div>
+
+
+
+  <script type="text/javascript">
+    function validate_data() {
+      console.log('validate-data')
+    }
+  </script>
+
+
+
+  <script type="text/javascript">
+    function p1() {
+      let photo = document.getElementById("image-file").files[0];
+      let formData = new FormData();
+
+      formData.append("photo", photo);
+      fetch('/upload/image', {method: "POST", body: formData});
+    }
+  </script>
+
+
+
+</div>
+</template>

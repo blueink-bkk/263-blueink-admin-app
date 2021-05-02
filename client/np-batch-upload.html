@@ -1,0 +1,60 @@
+<template name="sitemap-upload">
+<div class="">
+  [ <a href="/">back to index</a> ]
+
+  <h3>Blueink website Monitoring and Uploads</h3>
+  <h4>Upload New Product</h4>
+
+  <pre style="background-color:rgb(220,220,255); margin:20px;padding:20px; width:660px;">
+This page allows you to upload a list of URL to build the page called: <i>sitemap</i>.
+
+
+Before uploading the file: (check list)
+
+  <input type="checkbox">(1) the file must be EXCEL file.
+  <input type="checkbox">(2) column A is the full URL of a web page
+  <input type="checkbox">(3) column B is the status "OK" or not.
+  <input type="checkbox">(4) column C is the label/title that will be printed on the sitemap page.
+  <input type="checkbox">(5) column D is the URL of parent page calling an obsolete page (3) not Ok.
+  <input type="checkbox">(6) the first row must be an URL, no name/titles of columns.
+
+  </pre>
+
+  <input id="xlsx-sitemap-file" type="file" />
+
+  <div class="js-validate" style="margin-top:20px;">
+    <button type="button" name="button">VALIDATE</button>
+    <div id="validate-status" class="" style="display:inline-block;">
+      {{session 'validation-status'}}
+    </div>
+  </div>
+
+  <div class="js-upload" style="margin-top:20px;">
+    <button type="button" name="button">UPLOAD</button>
+    <div class="" style="display:inline-block;">
+      {{session 'upload-status'}}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function validate_data() {
+      console.log('validate-data')
+    }
+  </script>
+
+
+
+  <script type="text/javascript">
+    function p1() {
+      let photo = document.getElementById("image-file").files[0];
+      let formData = new FormData();
+
+      formData.append("photo", photo);
+      fetch('/upload/image', {method: "POST", body: formData});
+    }
+  </script>
+
+
+
+</div>
+</template>

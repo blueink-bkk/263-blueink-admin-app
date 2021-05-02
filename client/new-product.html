@@ -1,0 +1,112 @@
+<template name="new-product">
+<div class="">
+  [ <a href="/">back to index</a> ]
+
+  <h3>Blueink website Monitoring and Uploads</h3>
+  <h4>Upload New Product</h4>
+
+  <pre style="background-color:rgb(220,220,255); margin:20px;padding:20px; width:660px;">
+This page allows you to upload a "new-product".
+
+For each "new-product", JPCI will send a folder containing:
+
+  - a pdf file
+  - a jpeg file
+  - a docx file
+
+Each file <b>NAME</b> MUST follow the format and norms in use at Blueink.
+
+BEFORE UPLOADING A NEW-PRODUCT:
+  - choose an xid : sequential number (plus) type of product ex: 1567-Y2K
+  - FIRST: rename the folder name by prefixing with the sequential number ex: 1567^xxxxxxxxxx
+  - open docx file,
+  - read the content and create 2 MD files (MarkDown + metadata)
+  - one for English : "index-en.md"
+  - one for Thai : "index-th.md"
+  - make sure xid in both (index-en.md) and (index-th.md) are identical.
+  - use Atom or NotePad++ to write MD files. <b style="color:red;">DO NOT USE MS-WORD!</b>
+  - make sure none of the file names contain "space", accented or thai characters.
+
+UPLOADING A FOLDER NEW-PRODUCT:
+
+  - locate the folder using "FILE LOOKUP"
+  - then "UPLOAD"
+
+  </pre>
+
+  <div class="vbox" style="background-color: rgb(180,180,180); width:800px;
+  align-items:stretch;">
+
+  <div class="hbox"
+    style="justify-content:space-evenly;
+    padding:10px 3px;">
+
+    <div class="">
+      <label for="np-folder" name="lookup" class="menu1 dkz-button active">
+        FILE LOOKUP
+      </label>  <input id="np-folder" type="file"  style="display:none;"
+      webkitdirectory mozdirectory msdirectory odirectory
+      directory multiple/>
+    </div>
+
+    <!--
+
+    <div name="validate" class="menu1 js-validate dkz-button">
+      VALIDATE
+    </div>
+
+    <div name="skip-validation" class="menu1 js-skip-validation dkz-button">
+      SKIP VALIDATION
+    </div>
+    -->
+
+
+    <div name="upload" class="menu1 js-upload dkz-button">
+        <i class="fa fa-cloud-upload"></i> UPLOAD
+    </div>
+
+    <!--
+    <div name="publish" class="menu1 js-publish dkz-button">
+        <i class="fa fa-cloud-upload"></i> PUBLISH
+    </div>
+    -->
+
+    <div name="reset" class="js-reset dkz-button active">
+        RESET
+    </div>
+
+  </div>
+
+  <div class="hbox" style="min-height:20pt;
+  font-family: monospace; font-weight:bold;
+  text-align:center;
+  justify-content:center;
+  color:white;">
+    {{session 'upload-status'}}
+  </div>
+
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+  <pre style="margin:20px;padding:10px; background-color:orange;">{{session 'err-list'}}</pre>
+
+  <pre style="margin:20px;padding:10px; background-color:yellow;">{{session 'files-ready'}}</pre>
+
+
+<pre>
+xid from MD files will determine the folder name on the server.
+ex:
+  xid: 1597-IB
+All files (md, jpeg, pdf) will be in folder s3://blueink/np14/1597-IB/
+</pre>
+
+</div>
+</template>
